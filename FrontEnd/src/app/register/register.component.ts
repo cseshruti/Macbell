@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-// import { Router, ActivatedRoute } from '@angular/router';
+import { Router} from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../_services/authentication.service';
 
 
 @Component({
@@ -27,7 +28,9 @@ export class RegisterComponent implements OnInit {
 
     constructor(
         private formBuilder: FormBuilder,
-        private http: HttpClient
+        private http: HttpClient,
+        public authService: AuthService,
+        private router: Router
     ) { }
 
     ngOnInit() {
@@ -66,16 +69,24 @@ export class RegisterComponent implements OnInit {
         else {
             console.log(this.form.value)
 
-            this.http.post<any>('url', {
-                email: this.form.value.email,
-                password: this.form.value.password,
-                name: this.form.value.firstName + this.form.value.lastName,
-                category: this.form.value.category,
-                profileType: this.form.value.profileType
-            }).subscribe({
-                next: data => console.log(data),
-                error: error => console.error(error, "Error during register")
-            });
+            this.authService.register(this.form.value).subscribe((res => {
+                if(res.result) {
+                    this.form.reset();
+                    this.router.navigate(['/login'])
+                }
+            }))
+
+            
+            // this.http.post<any>('url', {
+            //     email: this.form.value.email,
+            //     password: this.form.value.password,
+            //     name: this.form.value.firstName + this.form.value.lastName,
+            //     category: this.form.value.category,
+            //     profileType: this.form.value.profileType
+            // }).subscribe({
+            //     next: data => console.log(data),
+            //     error: error => console.error(error, "Error during register")
+            // });
 
         }
         
