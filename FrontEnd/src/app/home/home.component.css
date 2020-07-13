@@ -5,6 +5,10 @@ header img {
     border-radius: 50%;
     height: 200px;
     width: 200px;
+
+}
+.text-center{
+    padding-right: 70px;
 }
 footer .hoverable:hover{
     background-color: lightgray;
