@@ -1,0 +1,30 @@
+header img {
+    height: 70vh;
+}
+.img-round{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+}
+footer .hoverable:hover{
+    background-color: lightgray;
+}
+footer .card-hover{
+    padding: 50px;
+    background-color: darkcyan;
+    color: white;
+}
+footer .textalign{
+    text-align: left;
+}
+footer .tag{
+    background-color: darkgray;
+    padding: 3px;
+    border: 1px solid gray;
+   margin-right: 3px;
+}
+footer i{
+    padding-right: 20px;
+    font-size: 30px;
+    color: white;
+}
