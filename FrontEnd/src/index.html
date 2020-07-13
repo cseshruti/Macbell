@@ -20,9 +20,7 @@
 
   <style>
       .footer {
-          padding-left: 20px;
-          background-color: darkslategrey
-          ;
+          background-color: darkslategrey;
           color: white;
           text-align: left;
       }
@@ -35,10 +33,10 @@
 </head>
 <body>
 
-    <app-root> </app-root>
+    <app-root (window:resize)="onResize($event)"> </app-root>
 
   <footer class="footer container-fluid text-center fixed-bottom">
-    <div class="row">
+    <div>
     © 2020 macbell.in. All Rights Reserved 
     </div>
   </footer>
