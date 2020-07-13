@@ -14,33 +14,35 @@ import { LoginComponent } from './user-model/login.component';
 import { ProfileComponent } from './user-model/profile.component';
 import { CompleteProfileComponent } from './user-model/complete-profile.component';
 import { AuthInterceptor } from './_services/authconfig.interceptor';
+// import { ResponsiveService } from './_services/responsive.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    RegisterComponent,
-    HomeComponent,
-    UserModelComponent,
-    LoginComponent,
-    ProfileComponent,
-    CompleteProfileComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    RouterModule,
-    FormsModule,
-    HttpClientModule
-  ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        RegisterComponent,
+        HomeComponent,
+        UserModelComponent,
+        LoginComponent,
+        ProfileComponent,
+        CompleteProfileComponent,
+        // ResponsiveService
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        RouterModule,
+        FormsModule,
+        HttpClientModule
+    ],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true
+        }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

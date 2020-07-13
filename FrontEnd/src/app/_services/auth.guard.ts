@@ -10,8 +10,8 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
   constructor(
     public authService: AuthService,
     public router: Router
-  ){ }
-  
+  ) { }
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
