@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+
 import { AuthService } from '../_services/authentication.service';
+import { ResponsiveService } from '../_services/responsive.service';
 
 
 @Component({
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-  form: FormGroup;
+    public isMobile: Boolean;
+    form: FormGroup;
     loading = false;
     submitted = false;
     step1 = true;
@@ -20,9 +22,9 @@ export class RegisterComponent implements OnInit {
         'student': ['intership', 'job seeker', 'freelancing work', 'startup idea', 'startup', 'join startup as a cofounder', 'join startup as team member'],
         'entrepreneur': ['startup idea', 'startup', 'join startup as a cofounder', 'join startup as team member'],
         'student entrepreneur': ['intership', 'job seeker', 'freelancing work', 'startup idea', 'startup', 'join startup as a cofounder', 'join startup as team member'],
-        'businessman': ['company', 'firm' , 'franchisee' , 'Distributors', 'wholesalers' , 'investor'],
-        'investor' : ['investor'],
-        'freelancer' : ['freelancer']
+        'businessman': ['company', 'firm', 'franchisee', 'Distributors', 'wholesalers', 'investor'],
+        'investor': ['investor'],
+        'freelancer': ['freelancer']
     };
     profiles = [];
 
@@ -30,12 +32,16 @@ export class RegisterComponent implements OnInit {
         private formBuilder: FormBuilder,
         private http: HttpClient,
         public authService: AuthService,
-        private router: Router
+        private router: Router,
+        private responsiveService: ResponsiveService
     ) { }
 
     ngOnInit() {
         // console.log(this.profileTypes.keys());
-        console.log(typeof(this.profileTypes));
+
+        this.onResize();
+        this.responsiveService.checkWidth();
+
         this.form = this.formBuilder.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
@@ -53,14 +59,14 @@ export class RegisterComponent implements OnInit {
     // convenience getter for easy access to form fields
     get f() { return this.form.controls; }
 
-    changeProfileType (val) {
+    changeProfileType(val) {
         this.profiles = this.profileTypes[val];
     }
 
     onSubmit() {
         this.submitted = true;
         // this.form.reset();
-        
+
 
         if (this.form.invalid) {
             console.log("form invalid");
@@ -70,13 +76,13 @@ export class RegisterComponent implements OnInit {
             console.log(this.form.value)
 
             this.authService.register(this.form.value).subscribe((res => {
-                if(res.result) {
+                if (res.result) {
                     this.form.reset();
                     this.router.navigate(['/login'])
                 }
             }))
 
-            
+
             // this.http.post<any>('url', {
             //     email: this.form.value.email,
             //     password: this.form.value.password,
@@ -89,8 +95,15 @@ export class RegisterComponent implements OnInit {
             // });
 
         }
-        
+
         // this.loading = true;
+    }
+
+    onResize() {
+        this.responsiveService.getMobileStatus().subscribe(isMobile => {
+            this.isMobile = isMobile;
+            console.log(this.isMobile);
+        });
     }
 
 }
