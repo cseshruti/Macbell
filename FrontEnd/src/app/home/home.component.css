@@ -45,4 +45,31 @@ footer i{
         clip-path: circle(60% at 50% 20%);
         -webkit-clip-path: circle(60% at 50% 20%);
     } 
+    .media{
+        margin-right: 150px;
+    }
+
+    .media-left{
+        position: relative;
+         left: 10px;
+          
+    }
+    .media-body{
+        position: relative;
+        left: 40px;  
+       width: 9000px;
+    }
+    .fa-ellipsis-v{
+        position: relative;
+     left: 70px !important; 
+    bottom: 90px;
+    }
+     .gallery {
+       
+         padding: 1rem; 
+        display: flex;
+        overflow-x: scroll;
+         scroll-padding: 0 50%; 
+        scroll-snap-type: x mandatory;
+    } 
 }
