@@ -1,57 +1,78 @@
 header img {
-    height: 70vh;
+  height: 70vh;
 }
-.img-round{
-    border-radius: 50%;
-    height: 200px;
-    width: 200px;
+.img-round {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+.text-center {
+  padding-right: 70px;
+}
+footer .hoverable:hover {
+  background-color: lightgray;
+}
+footer .card-hover {
+  padding: 50px;
+  background-color: darkcyan;
+  color: white;
+}
+footer .textalign {
+  text-align: left;
+}
+footer .tag {
+  background-color: darkgray;
+  padding: 3px;
+  border: 1px solid gray;
+  margin-right: 3px;
+}
+footer i {
+  padding-right: 20px;
+  font-size: 30px;
+  color: white;
+}
 
-}
-.text-center{
-    padding-right: 70px;
-}
-footer .hoverable:hover{
-    background-color: lightgray;
-}
-footer .card-hover{
-    padding: 50px;
-    background-color: darkcyan;
-    color: white;
-}
-footer .textalign{
-    text-align: left;
-}
-footer .tag{
-    background-color: darkgray;
-    padding: 3px;
-    border: 1px solid gray;
-   margin-right: 3px;
-}
-footer i{
-    padding-right: 20px;
-    font-size: 30px;
-    color: white;
-}
+@media only screen and (max-width: 560px) {
+  .shape {
+    width: 100%;
+    background: cadetblue;
+    height: 85vh;
+    position: relative;
 
+    clip-path: circle(60% at 50% 20%);
+    -webkit-clip-path: circle(60% at 50% 20%);
+  }
+  .card {
+    height: 100px;
+    width: 100%;
+  }
+  .card-body {
+    text-align: center;
+  }
 
+  .media {
+    margin-right: 150px;
+  }
 
-@media only screen and (max-width:560px){
-    .shape{
-        width: 100%;
-        background:cadetblue;
-        height:85vh;
-        position: relative;
-        
-        clip-path: circle(60% at 50% 20%);
-        -webkit-clip-path: circle(60% at 50% 20%);
-    } 
-    .card{
-        
-        height:100px;
-        width:100%;
-    }
-    .card-body{
-        text-align: center;
-    }
-
+  .media-left {
+    position: relative;
+    left: 10px;
+  }
+  .media-body {
+    position: relative;
+    left: 40px;
+    width: 9000px;
+  }
+  .fa-ellipsis-v {
+    position: relative;
+    left: 70px !important;
+    bottom: 90px;
+  }
+  .gallery {
+    padding: 1rem;
+    display: flex;
+    overflow-x: scroll;
+    scroll-padding: 0 50%;
+    scroll-snap-type: x mandatory;
+  }
 }
