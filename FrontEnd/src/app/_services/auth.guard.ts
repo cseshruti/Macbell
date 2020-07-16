@@ -15,12 +15,14 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.authService.isLoggedIn !== true) {
-      window.alert("Acccess not allowed. Please sign in");
-      this.router.navigate(['/login']);
-    }
-    return true;
+    // if (this.authService.isLoggedIn !== true) {
+    //   window.alert("Acccess not allowed. Please sign in");
+    //   this.router.navigate(['/login']);
+    // }
+    let url: string = state.url;
+    return this.checkLogin(url);
   }
+
   canActivateChild(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -38,4 +40,17 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
     segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
     return true;
   }
+
+  checkLogin(url: string): boolean {
+    if (this.authService.isLoggedIn) {
+      return true;
+    }
+    // save url for redirect after login
+    this.authService.redirectUrl =  url;
+    // redirect to login page;
+    this.router.navigate(['/login']);
+    return false;
+  }
+
+  
 }
