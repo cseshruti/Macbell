@@ -1,9 +1,110 @@
-<div class="card profile-card">
+<!-- <div class="card profile-card">
     <div class="card-body">
-        <div class="row">
-            <!-- Add form using ngIf -->
+        <div class="row"> 
+            Add form using ngIf
             
             Form here
+
+            
         </div>
     </div>
-</div>
+</div> -->
+
+
+
+
+
+<div class="container">
+
+    <div [ngSwitch]="category">
+        <div *ngSwitchCase="'startup idea'">
+            <div class="card profile-card ">
+                <div class="card-body">
+                    <div class="row"> 
+                        <form>
+                            <div class="form-group">
+                                <label for="brandname">Brand Name/company name</label>
+                                <input type="text" formControlName="brand name" class="form-control"  />
+                            </div>    
+                            <div class="form-group">
+                                <label for="brandemail">Company Email</label>
+                                <input type="text" formControlName="email" class="form-control"  />
+                            </div>   
+                            <div class="form-group">
+                                <label for="website">Company Website</label>
+                                <input type="text" formControlName="website" class="form-control"  />
+                            </div> 
+                            <div class="form-group">
+                                <label for="address">Company Address</label>
+                                <textarea type="text" rows="2" formControlName="address" class="form-control" > </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" formControlName="city" class="form-control"  />
+                            </div> 
+                            <div class="form-group">
+                                <label for="industry">Industry</label><br>
+                                    <select id="industry" name="industry">
+                                        <option value="it">IT</option>
+                                        <option value="business">Business</option>
+                                    </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="nature">Nature of Business</label><br>
+                                    <select id="nature" name="nature">
+                                        <option value="it">IT</option>
+                                        <option value="business">Business</option>
+                                    </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="about">About Company</label>
+                                <textarea type="text" rows="3" formControlName="about" class="form-control" > </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="file">Add product</label><br>
+                                <input type="file" name="datafile" size="100">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngSwitchCase="'cofounder'">
+            <div class="card profile-card">
+                <div class="card-body">
+                    <div class="row"> 
+                        <form>
+                            <div class="form-group">
+                                <label for="skills">Skills</label>
+                                <input type="text" formControlName="skills" class="form-control"  />
+                            </div>    
+                            <div class="form-group">
+                                <label for="cofounder type">Cofounder type</label>
+                                <select id="cofounder type" name="cofoundr type">
+                                    <option value="partner">Partner</option>
+                                    <option value="founding member">Founding Member</option>
+                                </select>
+                            </div>  
+                            <div class="form-group">
+                                <label for="location">Cofounder Location</label>
+                                <input type="text" formControlName="location" class="form-control"  />
+                            </div> 
+                            
+                            <div class="form-group">
+                                <label for="applybefore">Apply before</label>
+                                <input type="date" formControlName="applybefore" class="form-control" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <div *ngSwitchCase="''"></div>
+      <div *ngSwitchDefault>No category found</div>
+      </div>
+  
+  
+  
+  
+  </div>
