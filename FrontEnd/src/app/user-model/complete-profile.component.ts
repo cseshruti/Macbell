@@ -14,7 +14,8 @@ export class CompleteProfileComponent implements OnInit {
     mobile = "2385075847";
     email = "seriuvyi@shenrh";
     id = "iweu";
-    category = "intern";
+    category = "startup idea"; 
+    // startup idea, cofounder
     firm_name = "-";
 
     constructor(
@@ -39,5 +40,7 @@ export class CompleteProfileComponent implements OnInit {
             console.log(this.isMobile);
         });
     }
+    
 
 }
+
