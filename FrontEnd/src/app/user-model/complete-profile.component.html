@@ -10,7 +10,22 @@
     </div>
 </div> -->
 
-
+<style>
+    input{
+       width: 100%;
+       /* border-radius: 3px; */
+       /* border: darkgray; */
+    }
+   textarea{
+       width: 100%;
+       border-radius: 3px;
+   } 
+   button{
+       position: relative;
+       left: 200px;
+   }
+    
+</style> 
 
 
 
@@ -21,6 +36,8 @@
             <div class="card profile-card ">
                 <div class="card-body">
                     <div class="row"> 
+                        <h1>Create Your Profile as startup Idea</h1><hr>
+                    </div>
                         <form>
                             <div class="form-group">
                                 <label for="brandname">Brand Name/company name</label>
@@ -65,7 +82,7 @@
                                 <input type="file" name="datafile" size="100">
                             </div>
                         </form>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -74,6 +91,8 @@
             <div class="card profile-card">
                 <div class="card-body">
                     <div class="row"> 
+                        <h1>Create Your Profile as Cofounder</h1><hr>
+                    </div>
                         <form>
                             <div class="form-group">
                                 <label for="skills">Skills</label>
@@ -96,10 +115,138 @@
                                 <input type="date" formControlName="applybefore" class="form-control" />
                             </div>
                         </form>
-                    </div>
+                    
                 </div>
             </div>
         </div>
+      <div *ngSwitchCase="'intern'">
+        <div class="card profile-card">
+            <div class="card-body">
+                <div class="row">
+                    <h1>Create Your Profile as an Intern</h1><hr>
+                </div> 
+                    <form>
+                        <div>
+                            <label ><b>Introduction</b></label>
+                        </div>
+                    <div>
+                        <label for="name">Name : </label>
+                        <input type="text" name="name" >
+                    </div>
+                    <div>
+                        <label for="category">I'm : </label>
+                        <input type="text" name="category">
+                    </div>
+                    <div>
+                        <label for="ocuupation">Studies/Work at: </label>
+                        <input type="text" name="occupation">
+                    </div><hr>
+                     <div>
+                        <label ><b>Educational details-</b></label>
+                    </div> 
+                    <div>
+                        <label for="college_name">College Name :</label>
+                        <input type="text" name="college_name">
+                    </div>
+                    <div>
+                        <label for="course_name">Course Name :</label>
+                        <input type="text" name="course_name">
+                    </div>
+                    <div>
+                        <label for="passing_year">Passing Year :</label>
+                        <input type="text" name="passing_year">
+                    </div>
+                    <div>
+                        <label for="percentage">Percentage% :</label>
+                        <input type="text" name="percentage">
+                    </div><hr>
+                    <div>
+                        <label for="skills">Skills</label>
+                        <select name="skills"  style="width: 100%;">
+                            <option >Full Stack Developer</option>
+                            <option >Front End Developer</option>
+                            <option >Backend Developer</option>
+                        </select>
+                    </div><hr>
+                    <div>
+                        <label for="work_at">Work at :</label>
+                        <input type="text" placeholder="Company name"><br><br>
+                        <input type="text" placeholder="Job Post"><br><br>
+                        <input type="text" placeholder="Duration">
+                    </div><hr>
+                    <div>
+                        <label for="experience">Experience</label>
+                        <textarea name="experience"  cols="30" rows="10"></textarea>
+                    </div>
+                    <div>
+                        <label for="introduction">About Yourself -</label>
+                        <textarea name="introduction"  cols="10" rows="10"></textarea>
+                    </div><br>
+                    <div>
+                        <button >Upload Resume
+                            <input type="file" name="datafile" size="100">
+                        </button><br><br>
+                    </div>
+                    </form>
+                
+            </div>
+        </div>    
+      </div>
+      <div *ngSwitchCase="'Freelancer'">
+        <div class="card profile-card">
+            <div class="card-body">
+                <div class="row">
+                    <h1>Create Your Profile as Freelancer</h1>
+                </div><hr>
+                <form>
+                    <div>
+                        <input type="text">
+                    </div><br>
+                    <div><input type="text"></div><br>
+                    <div><input type="text"></div><br>
+                    <div><input type="text"></div><br>
+                    <div><label for="work_as">Work as (Category): </label><input type="text" ></div><br>
+                    <div><label for="subcategory">Subcategory (new added)</label><input type="text" ></div><br>
+                    <div><input type="text"></div><br>
+                    <div><textarea ></textarea></div><br>
+                </form>
+            </div>
+            </div>
+      </div>
+      <div *ngSwitchCase="'Job Opportunity'">
+        <div class="card profile-card">
+            <div class="card-body">
+                <div class="row">
+                    <h1>Form for Posting - Job opportunity / Internship/ freelancing work </h1>
+                </div><hr>
+                <form>
+                <div>
+                    <label for="company_name">Company Name :</label>
+                    <input type="text" name="company_name">
+            </div>
+            <div>
+                <label for="job_title">Job Title</label>
+                <input type="text" name="job_title">
+             </div>
+             <div>
+                 <label for="location">Location</label>
+                 <input type="text" name="location">
+             </div><br>
+             <div>
+                 <label for="job_type">Job Type :</label>
+                 <select name="job_type" >
+                     <option >Part Time</option>
+                     <option >Ful Time</option>
+                     <option >Free Lancing Work</option>
+                    <option >Internship</option>
+                    </select>
+             </div>
+             </form>
+            </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="''"></div>
+      <div *ngSwitchCase="''"></div>
       <div *ngSwitchCase="''"></div>
       <div *ngSwitchDefault>No category found</div>
       </div>
