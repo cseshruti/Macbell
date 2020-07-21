@@ -31,6 +31,10 @@ export class ProfileComponent implements OnInit {
         console.log("Update Profile");
         this.router.navigate(['/updateProfile']);
     }
+    onClick(){
+        console.log("Update Profile");
+        this.router.navigate(['/editProfile']);
+    }
     onResize() {
         this.responsiveService.getMobileStatus().subscribe(isMobile => {
             this.isMobile = isMobile;

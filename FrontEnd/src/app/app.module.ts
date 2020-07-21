@@ -14,6 +14,7 @@ import { LoginComponent } from './user-model/login.component';
 import { ProfileComponent } from './user-model/profile.component';
 import { CompleteProfileComponent } from './user-model/complete-profile.component';
 import { AuthInterceptor } from './_services/authconfig.interceptor';
+import { UpdateProfileComponent } from './user-model/update-profile/update-profile.component';
 // import { ResponsiveService } from './_services/responsive.service';
 
 @NgModule({
@@ -25,6 +26,7 @@ import { AuthInterceptor } from './_services/authconfig.interceptor';
         LoginComponent,
         ProfileComponent,
         CompleteProfileComponent,
+        UpdateProfileComponent,
         // ResponsiveService
     ],
     imports: [
