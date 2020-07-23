@@ -14,7 +14,7 @@ export class CompleteProfileComponent implements OnInit {
     mobile = "2385075847";
     email = "seriuvyi@shenrh";
     id = "iweu";
-    category = "startup idea"; 
+    category = "intern"; 
     // startup idea, cofounder
     firm_name = "-";
 
