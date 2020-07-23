@@ -15,6 +15,8 @@ import { ProfileComponent } from './user-model/profile.component';
 import { CompleteProfileComponent } from './user-model/complete-profile.component';
 import { AuthInterceptor } from './_services/authconfig.interceptor';
 import { UpdateProfileComponent } from './user-model/update-profile/update-profile.component';
+import { IstartComponent } from './user-model/istart/istart.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 // import { ResponsiveService } from './_services/responsive.service';
 
 @NgModule({
@@ -27,6 +29,7 @@ import { UpdateProfileComponent } from './user-model/update-profile/update-profi
         ProfileComponent,
         CompleteProfileComponent,
         UpdateProfileComponent,
+        IstartComponent,
         // ResponsiveService
     ],
     imports: [
@@ -36,7 +39,8 @@ import { UpdateProfileComponent } from './user-model/update-profile/update-profi
         ReactiveFormsModule,
         RouterModule,
         FormsModule,
-        HttpClientModule
+        HttpClientModule,
+        GoogleMapsModule
     ],
     providers: [
         {

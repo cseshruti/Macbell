@@ -7,6 +7,7 @@ import { ProfileComponent } from './user-model/profile.component';
 import { CompleteProfileComponent } from './user-model/complete-profile.component';
 import { UpdateProfileComponent } from './user-model/update-profile/update-profile.component';
 import { AuthGuard } from './_services/auth.guard';
+import { IstartComponent } from './user-model/istart/istart.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'updateProfile', component: CompleteProfileComponent },
     { path: 'editProfile', component: UpdateProfileComponent},
+    { path: 'istart', component:IstartComponent},
     { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
 
